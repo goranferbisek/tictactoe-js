@@ -15,7 +15,7 @@ h1 {
     font-size: 3em;
 }
 
-#game-board {
+#gameboard {
     width: 600px;
     height: 600px;
     margin: auto;
@@ -29,6 +29,6 @@ h1 {
     gap: 1rem;
 }
 
-#game-board div {
+#gameboard div {
     background-color: var(--field-color);
 }

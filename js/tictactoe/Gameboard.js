@@ -1,9 +1,9 @@
 import Player from './Player.js';
 
-export default class GameBoard {
+export default class Gameboard {
 
-    constructor(gameBoard) {
-        this.gameBoard = gameBoard;
+    constructor(gameboard) {
+        this.gameboard = gameboard;
         this.players = [new Player('X'), new Player('O')]
         this.nextPlayer = this.players[0];
     }
@@ -23,7 +23,7 @@ export default class GameBoard {
      * @return Value of the game board field containing Player representation symbol
      */
     getFieldValue(index) {
-        return this.gameBoard[index];
+        return this.gameboard[index];
     }
 
     /**
@@ -32,14 +32,25 @@ export default class GameBoard {
      * @return {void}
      */
     setFieldValue(index) {
-        this.gameBoard[index] = this.nextPlayer.symbol;
+        if (this.gameboard) {
+            this.gameboard[index] = this.nextPlayer.symbol;
+        }
     }
 
     /**
      * Prints game board values to the console
      * @return {void}
      */
-    printGameBoard() {
-        console.log(this.gameBoard);
+    printGameboard() {
+        console.log(this.gameboard);
     }
+
+    /**
+     * Check if a win or a tie has ben accomplished
+     */
+    checkWin() {
+        console.log('check win');
+    }
+
+
 }

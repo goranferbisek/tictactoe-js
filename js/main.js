@@ -1,27 +1,30 @@
-import GameBoard from './tictactoe/GameBoard.js';
+import Gameboard from './tictactoe/Gameboard.js';
 
-function readGameBoard() {
-    let gameBoardArray = [];
+function readGameboard() {
+    let gameboardArray = [];
 
-    const gameBoard = document.querySelector('#game-board').children;
+    const gameboard = document.querySelector('#gameboard').children;
 
-    for (let i = 0; i < gameBoard.length; i++) {
-        gameBoardArray[i] = gameBoard.item(i).innerText;
+    for (let i = 0; i < gameboard.length; i++) {
+        gameboardArray[i] = gameboard.item(i).innerText;
     }
 
-    return gameBoardArray;
+    return gameboardArray;
 }
 
 
-//init game
-let gameBoard = new GameBoard(readGameBoard());
+let board = new Gameboard(readGameboard());
 
-console.log(gameBoard.getNextPlayer().symbol);
-gameBoard.setNextPlayer();
+board.setFieldValue(1);
+board.checkWin();
+board.printGameboard();
 
-console.log(gameBoard.getNextPlayer());
-gameBoard.setNextPlayer();
-console.log(gameBoard.getNextPlayer());
+board.setNextPlayer();
+board.setFieldValue(0);
+board.checkWin();
+board.printGameboard();
 
-//gameBoard.setFieldValue(1);
-//gameBoard.printGameBoard();
+board.setNextPlayer();
+board.setFieldValue(5);
+board.checkWin();
+board.printGameboard();
