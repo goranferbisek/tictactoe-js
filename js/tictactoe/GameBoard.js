@@ -8,6 +8,18 @@ export default class GameBoard {
         this.nextPlayer = this.players[0];
     }
 
+    setNextPlayer() {
+        if (this.nextPlayer === this.players[0]) {
+            this.nextPlayer = this.players[1]
+        } else {
+            this.nextPlayer = this.players[0]
+        }
+    }
+
+    getNextPlayer() {
+        return this.nextPlayer;
+    }
+
     /**
      *
      * @param index Index of the game board field

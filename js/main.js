@@ -15,7 +15,11 @@ function readGameBoard() {
 //init game
 let gameBoard = new GameBoard(readGameBoard());
 
+console.log(gameBoard.getNextPlayer());
+gameBoard.setNextPlayer();
+console.log(gameBoard.getNextPlayer());
+gameBoard.setNextPlayer();
+console.log(gameBoard.getNextPlayer());
 
-gameBoard.setFieldValue(1,"X");
-gameBoard.printGameBoard();
-//while
+//gameBoard.setFieldValue(1);
+//gameBoard.printGameBoard();
