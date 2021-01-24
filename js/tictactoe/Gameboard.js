@@ -3,9 +3,10 @@ import Player from './Player.js';
 export default class Gameboard {
 
     constructor(gameboard) {
-        this.gameboard = gameboard;
+        this.gameboard = Array(9).fill('');
         this.players = [new Player('X'), new Player('O')]
         this.nextPlayer = this.players[0];
+        this.initGameboard();
     }
 
     setNextPlayer() {
@@ -48,12 +49,29 @@ export default class Gameboard {
         console.log(this.gameboard);
     }
 
+    initGameboard() {
+        let element;
+
+        this.gameboard.forEach((field, index) => {
+            element = document.createElement('div');
+            element.id = index;
+            element.innerText = field;
+
+            document.getElementById('gameboard').appendChild(element);
+        });
+    }
+
+    drawGameboard() {
+        let gameboadHTMLElement = document.getElementById('gameboard');
+        Array.from(gameboadHTMLElement.children).forEach((element, i) => {
+            element.innerText = this.gameboard[i];
+        })
+    }
+
     /**
      * Check if a win or a tie has ben accomplished
      */
     checkWin() {
         console.log('check win');
     }
-
-
 }

@@ -1,18 +1,6 @@
 import Gameboard from './tictactoe/Gameboard.js';
 
-function readGameboard() {
-    let gameboardArray = [];
-
-    const gameboard = document.querySelector('#gameboard').children;
-
-    for (let i = 0; i < gameboard.length; i++) {
-        gameboardArray[i] = gameboard.item(i).innerText;
-    }
-
-    return gameboardArray;
-}
-
-let board = new Gameboard(readGameboard());
+let board = new Gameboard();
 let fields = document.querySelector('#gameboard').children
 
 for (let i = 0; i < fields.length; i++) {
@@ -21,6 +9,7 @@ for (let i = 0; i < fields.length; i++) {
             //board.checkWin();
             board.setNextPlayer();
             board.printGameboard();
+            board.drawGameboard();
         } else {
             console.log('Field already taken.');
         }
