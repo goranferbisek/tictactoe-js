@@ -12,11 +12,13 @@ function readGameBoard() {
     return gameBoardArray;
 }
 
+
 //init game
 let gameBoard = new GameBoard(readGameBoard());
 
-console.log(gameBoard.getNextPlayer());
+console.log(gameBoard.getNextPlayer().symbol);
 gameBoard.setNextPlayer();
+
 console.log(gameBoard.getNextPlayer());
 gameBoard.setNextPlayer();
 console.log(gameBoard.getNextPlayer());

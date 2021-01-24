@@ -1,6 +1,6 @@
 export default class Player {
 
-    constructor(name = 'X', symbol) {
+    constructor(symbol, name = '') {
         this.name = name;
         this.symbol = symbol;
     }
