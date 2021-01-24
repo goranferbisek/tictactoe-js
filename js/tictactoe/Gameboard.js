@@ -69,9 +69,50 @@ export default class Gameboard {
     }
 
     /**
-     * Check if a win or a tie has ben accomplished
+     * Check if a win or a tie has been accomplished
      */
     checkWin() {
-        console.log('check win');
+        // check rows
+        for (let i = 0; i < 3; i++) {
+            console.log(i)
+            if (this.gameboard[i*3] != '' &&
+                this.gameboard[i*3] == this.gameboard[i*3+1] &&
+                this.gameboard[i*3+1] == this.gameboard[i*3+2])
+            {
+                return 'win'
+            }
+        }
+
+        // check columns
+        for (let i = 0; i < 3; i++) {
+            if (this.gameboard[i] != '' &&
+                this.gameboard[i] == this.gameboard[i+3] &&
+                this.gameboard[i+3] == this.gameboard[i+6] )
+            {
+                return 'win'
+            }
+        }
+
+        // check diagonals
+        if (this.gameboard[0] != '' &&
+            this.gameboard[0] == this.gameboard[4] &&
+            this.gameboard[4] == this.gameboard[8])
+        {
+            return 'win'
+        }
+
+        if (this.gameboard[2] != '' &&
+            this.gameboard[2] == this.gameboard[4] &&
+            this.gameboard[4] == this.gameboard[6])
+        {
+            return 'win'
+        }
+
+        // check if is a draw
+        if (!this.gameboard.includes('')) {
+            return 'draw';
+        }
+
+        return '';
     }
 }
