@@ -9,11 +9,8 @@ export default class GameBoard {
     }
 
     setNextPlayer() {
-        if (this.nextPlayer === this.players[0]) {
-            this.nextPlayer = this.players[1]
-        } else {
-            this.nextPlayer = this.players[0]
-        }
+        this.nextPlayer === this.players[0] ?
+            this.nextPlayer = this.players[1] : this.nextPlayer = this.players[0];
     }
 
     getNextPlayer() {
