@@ -3,7 +3,7 @@ import GameBoard from './tictactoe/GameBoard.js';
 function readGameBoard() {
     let gameBoardArray = [];
 
-    const gameBoard = document.querySelector('.game-board').children;
+    const gameBoard = document.querySelector('#game-board').children;
 
     for (let i = 0; i < gameBoard.length; i++) {
         gameBoardArray[i] = gameBoard.item(i).innerText;
