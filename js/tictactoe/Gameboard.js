@@ -32,9 +32,12 @@ export default class Gameboard {
      * @return {void}
      */
     setFieldValue(index) {
-        if (this.gameboard) {
+        if (this.gameboard[index] === '') {
             this.gameboard[index] = this.nextPlayer.symbol;
+            return true;
         }
+
+        return false;
     }
 
     /**

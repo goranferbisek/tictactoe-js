@@ -12,19 +12,17 @@ function readGameboard() {
     return gameboardArray;
 }
 
-
 let board = new Gameboard(readGameboard());
+let fields = document.querySelector('#gameboard').children
 
-board.setFieldValue(1);
-board.checkWin();
-board.printGameboard();
-
-board.setNextPlayer();
-board.setFieldValue(0);
-board.checkWin();
-board.printGameboard();
-
-board.setNextPlayer();
-board.setFieldValue(5);
-board.checkWin();
-board.printGameboard();
+for (let i = 0; i < fields.length; i++) {
+    fields.item(i).addEventListener('click', e => {
+        if (board.setFieldValue(e.target.id)) {
+            //board.checkWin();
+            board.setNextPlayer();
+            board.printGameboard();
+        } else {
+            console.log('Field already taken.');
+        }
+    });
+}
