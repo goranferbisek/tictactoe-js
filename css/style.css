@@ -10,6 +10,14 @@ body {
     background-color: var(--background-color);
 }
 
+main {
+    max-width: 900px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 h1 {
     text-align: center;
     font-size: 3em;
@@ -18,8 +26,7 @@ h1 {
 #gameboard {
     width: 600px;
     height: 600px;
-    margin: auto;
-    margin-top: 120px;
+    margin: 60px auto;
     background-color: #a0bfee;
 
     font-size: 2rem;
@@ -31,4 +38,24 @@ h1 {
 
 #gameboard div {
     background-color: var(--field-color);
+}
+
+footer {
+    font-size: larger;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--field-color);
+
+    display: flex;
+    justify-content: space-between;
+}
+
+#message {
+    text-align: center;
+    font-size: 3rem;
+}
+
+button {
+    background-color: var(--background-color);
+    font-size: 2rem;
 }

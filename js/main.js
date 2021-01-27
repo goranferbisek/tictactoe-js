@@ -2,6 +2,10 @@ import Gameboard from './tictactoe/Gameboard.js';
 
 let board = new Gameboard();
 let fields = document.querySelector('#gameboard').children
+let messageField = document.getElementById('message')
+let resetButton = document.getElementById('reset')
+
+resetButton.addEventListener('click', () => board.initGameboard());
 
 function respondToClick(e) {
     if (board.setFieldValue(e.target.id)) {
@@ -10,12 +14,10 @@ function respondToClick(e) {
             board.setNextPlayer();
         } else if (gameStatus === "draw") {
             disableEvents(fields);
-            // write a message of a draw to a HTML element
-            console.log("It's a draw.");
+            messageField.innerText = "It's a draw.";
         } else {
             disableEvents(fields);
-            // write a message of the winner to a HTML element
-            console.log('Player ' + board.getNextPlayer().symbol + ' wins');
+            messageField.innerText = `Player ${board.getNextPlayer().symbol} wins`;
         }
         board.drawGameboard();
     } else {
