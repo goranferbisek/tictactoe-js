@@ -2,7 +2,8 @@ import Player from './Player.js';
 
 export default class Gameboard {
 
-    constructor(gameboard) {
+    constructor(elementId) {
+        this.gameboardElement = document.querySelector('#'+elementId);
         this.gameboard = Array(9).fill('');
         this.players = [new Player('X'), new Player('O')]
         this.nextPlayer = this.players[0];
@@ -57,8 +58,13 @@ export default class Gameboard {
             element.id = index;
             element.innerText = field;
 
-            document.getElementById('gameboard').appendChild(element);
+            this.gameboardElement.appendChild(element);
         });
+    }
+
+    resetGameboard() {
+        this.gameboard = Array(9).fill('');
+        this.drawGameboard();
     }
 
     drawGameboard() {
@@ -74,7 +80,6 @@ export default class Gameboard {
     checkWin() {
         // check rows
         for (let i = 0; i < 3; i++) {
-            console.log(i)
             if (this.gameboard[i*3] != '' &&
                 this.gameboard[i*3] == this.gameboard[i*3+1] &&
                 this.gameboard[i*3+1] == this.gameboard[i*3+2])

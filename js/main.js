@@ -1,11 +1,11 @@
 import Gameboard from './tictactoe/Gameboard.js';
 
-let board = new Gameboard();
+let board = new Gameboard('gameboard');
 let fields = document.querySelector('#gameboard').children
 let messageField = document.getElementById('message')
 let resetButton = document.getElementById('reset')
 
-resetButton.addEventListener('click', () => board.initGameboard());
+resetButton.addEventListener('click', () => board.resetGameboard());
 
 function respondToClick(e) {
     if (board.setFieldValue(e.target.id)) {
